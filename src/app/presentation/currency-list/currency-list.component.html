@@ -1,0 +1,28 @@
+<button type="button" (click)="updateCurrency()">Обновить курс</button>
+<button type="button" [disabled]="isEnabled === true" (click)="autoUpdateOn()">Автообновление вкл.</button>
+<button type="button" [disabled]="isEnabled === false" (click)="autoUpdateOff()">Автообновление выкл.</button>
+<table>
+  <tr *ngFor="let currency of currencyList; index as i; trackBy: trackByFn">
+    <td>
+      {{currency.id}}
+    </td>
+    <td>
+      {{currency.numCode}}
+    </td>
+    <td>
+      {{currency.charCode}}
+    </td>
+    <td>
+      {{currency.nominal}}
+    </td>
+    <td>
+      {{currency.name}}
+    </td>
+    <td>
+      {{currency.value}}
+    </td>
+    <td>
+      {{currency.previosValue}}
+    </td>
+  </tr>
+</table>
