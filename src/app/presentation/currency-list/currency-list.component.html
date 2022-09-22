@@ -2,6 +2,12 @@
 <button type="button" [disabled]="isEnabled === true" (click)="autoUpdateOn()">Автообновление вкл.</button>
 <button type="button" [disabled]="isEnabled === false" (click)="autoUpdateOff()">Автообновление выкл.</button>
 <table>
+  <tr>
+    <td colspan="7">
+      <label for="name">Рубли: </label>
+      <input id="name" type="text" [formControl]="ruble">
+    </td>
+  </tr>
   <tr *ngFor="let currency of currencyList; index as i; trackBy: trackByFn">
     <td>
       {{currency.id}}
@@ -24,5 +30,6 @@
     <td>
       {{currency.previosValue}}
     </td>
+    <td>{{currency.value | exchangeTotal: ruble.value }}</td>
   </tr>
 </table>

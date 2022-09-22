@@ -6,6 +6,7 @@ import {
 } from "../../data/repository/currency-paginator-web-repository/currency-paginator-web-entity";
 import {CurrencyWebEntity} from "../../data/repository/currency-web-repository/currency-web-entity";
 import {uuid} from "../../core/domain/currency.model";
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-currency-list',
@@ -15,6 +16,7 @@ import {uuid} from "../../core/domain/currency.model";
 })
 export class CurrencyListComponent implements OnInit, OnDestroy {
 
+  ruble = new FormControl(0);
   currencyPaginator$: Observable<CurrencyPaginatorWebEntity> = this.getAllCurrency.execute();
   currencyList: CurrencyWebEntity[] = [];
 
